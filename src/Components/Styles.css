@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+@import "./Credentials.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s linear;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+:root {
+  /* #Primary */
+  --Marine-blue: hsl(213, 96%, 18%);
+  --Purplish-blue: hsl(243, 100%, 62%);
+  --Pastel-blue: hsl(228, 100%, 84%);
+  --Light-blue: hsl(206, 94%, 87%);
+  --Strawberry-red: hsl(354, 84%, 57%);
+
+  /* #Neutral */
+  --Cool-gray: hsl(231, 11%, 63%);
+  --Light-gray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+
+  /* #fonts */
+  --font-Ubuntu: "Ubuntu", sans-serif;
+}
+
+main {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.steps--wrapper {
+  background: url("/public/assets/images/bg-sidebar-mobile.svg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 2rem 1rem 1rem 1rem;
+  display: flex;
+  justify-content: space-around;
+  height: 30vh;
+  font-family: var(--font-Ubuntu);
+  font-weight: 500;
+}
+.steps--container {
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+  height: fit-content;
+}
+.step {
+  color: var(--White);
+  border-radius: 50%;
+  border: 2px solid var(--White);
+  width: fit-content;
+  height: fit-content;
+  padding: 8px 14px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.5s linear;
+}
+.step:hover {
+  background: var(--White);
+  color: var(--Marine-blue);
+}
+.steps--container.active .step {
+  background: var(--White);
+  color: var(--Marine-blue);
+}
+.steps {
+  display: none;
+  /* display: flex; */
+  flex-direction: column;
+}
+.steps > .step--no {
+  font-weight: 400;
+  color: var(--Cool-gray);
+}
+.steps > .step--name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--White);
+}
+
+/* Media Queries */
+@media Screen and (min-width: 900px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  main {
+    height: 70vh;
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+  }
+  .steps--wrapper {
+    background: url("/public/assets/images/bg-sidebar-desktop.svg");
+    background-size: cover;
+    background-position: center;
+    width: fit-content;
+    height: 100%;
+    width: 30%;
+    flex-direction: column;
+    border-radius: 5px 0 0 5px;
+  }
+  .steps--container {
+    padding: 5px 15px;
+    gap: 10px;
+    width: 100%;
+  }
+  .steps--container > .steps {
+    display: flex;
+  }
+}

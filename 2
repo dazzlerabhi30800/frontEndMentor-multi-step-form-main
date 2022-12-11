@@ -1,0 +1,36 @@
+import React, { useState, useRef } from "react";
+
+const PersonalInfo = ({ email, setEmail, phone, setPhone, name, setName }) => {
+  const [personalInfo, setPersonalInfo] = useState(false);
+  const nameInput = useRef();
+  const emailInput = useRef();
+  const phoneInput = useRef();
+
+  return (
+    <div className="info--wrapper">
+      <h2 className="credentials--heading">Personal Info</h2>
+      <span className="info">
+        Please Provide your name, email address and phone number.
+      </span>
+      <form>
+        <div className="input--container">
+          <label htmlFor="name">Name</label>
+          <input id="name" type="text" ref={nameInput} />
+          <span className="error"></span>
+        </div>
+        <div className="input--container">
+          <label htmlFor="email">Email</label>
+          <input id="email" type="email" ref={emailInput} />
+          <span className="error"></span>
+        </div>
+        <div className="input--container">
+          <label htmlFor="phone-no">Phone No</label>
+          <input id="phone-no" type="text" ref={phoneInput} />
+          <span className="error"></span>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default PersonalInfo;
