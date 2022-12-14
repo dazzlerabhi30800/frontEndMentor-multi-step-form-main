@@ -3,10 +3,11 @@ import React, { useState, useRef } from "react";
 function Plan({
   updateIndex,
   activeIndex,
-  planPrice,
   setPlanPrice,
   plan,
   setPlan,
+  setPlanName,
+  planName,
 }) {
   const price = useRef();
   const planContainer = useRef();
@@ -24,12 +25,16 @@ function Plan({
     if (!checkContainer || checkContainer.length > 1) {
       alert("Please choose plan");
     } else {
+      const pName = checkContainer.querySelector(
+        ".plan--text--wrapper .plan--title"
+      ).textContent;
       const planContainer = checkContainer.querySelector(
         ".plan--text--wrapper"
       );
       const price = planContainer.querySelector(".price span").textContent;
       const intPrice = parseInt(price);
       setPlanPrice(intPrice);
+      setPlanName(pName);
       updateIndex(activeIndex + 1);
     }
   }

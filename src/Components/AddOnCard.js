@@ -1,6 +1,7 @@
 import React from "react";
 
 function AddOnCard({ data, plan, addData, setAddData }) {
+  // functions on selecting add on wrapper
   function handleSelect(id) {
     setAddData(
       addData.map((data) => {
@@ -14,6 +15,7 @@ function AddOnCard({ data, plan, addData, setAddData }) {
       })
     );
   }
+
   return (
     <div
       className={`add--on--card ${data.selected ? "checked" : ""}`}

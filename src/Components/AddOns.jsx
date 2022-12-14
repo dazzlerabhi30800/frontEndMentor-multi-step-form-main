@@ -1,7 +1,14 @@
 import React from "react";
 import AddOnCard from "./AddOnCard";
 
-function AddOns({ addOnData, setAddOnData, updateIndex, activeIndex, plan }) {
+function AddOns({
+  addOnData,
+  setAddOnData,
+  updateIndex,
+  activeIndex,
+  plan,
+  filteredData,
+}) {
   const AddOnComp = addOnData.map((data, i) => {
     return (
       <AddOnCard
@@ -13,6 +20,13 @@ function AddOns({ addOnData, setAddOnData, updateIndex, activeIndex, plan }) {
       />
     );
   });
+  const checkAddOn = () => {
+    if (filteredData.length >= 1) {
+      updateIndex(activeIndex + 1);
+    } else {
+      alert("please choose add on");
+    }
+  };
   return (
     <div className="add--on--wrapper">
       <div className="add--on--container">
@@ -30,10 +44,7 @@ function AddOns({ addOnData, setAddOnData, updateIndex, activeIndex, plan }) {
         >
           Go Back
         </button>
-        <button
-          onClick={() => updateIndex(activeIndex + 1)}
-          className="btn next"
-        >
+        <button onClick={checkAddOn} className="btn next">
           Next Step
         </button>
       </div>
