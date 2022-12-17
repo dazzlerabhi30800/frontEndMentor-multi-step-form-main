@@ -44,6 +44,14 @@ const Finish = ({
     // handleTotalPrice(totalPrice);
   };
 
+  const checkPrice = () => {
+    if (allPrice > 0) {
+      updateIndex(activeIndex + 1);
+    } else {
+      alert("You haven't selected any plan");
+    }
+  };
+
   useEffect(() => {
     handleTotalAddPrice();
   }, [sortedData]);
@@ -98,10 +106,7 @@ const Finish = ({
         >
           Go Back
         </button>
-        <button
-          onClick={() => updateIndex(activeIndex + 1)}
-          className="btn next"
-        >
+        <button onClick={checkPrice} className="btn next">
           Confirm
         </button>
       </div>
