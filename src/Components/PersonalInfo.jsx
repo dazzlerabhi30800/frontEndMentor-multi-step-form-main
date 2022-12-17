@@ -68,17 +68,32 @@ const PersonalInfo = ({ updateIndex, activeIndex }) => {
         <form>
           <div className="input--container">
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" ref={nameInput} />
+            <input
+              placeholder="e.g Stephen King"
+              type="text"
+              id="name"
+              ref={nameInput}
+            />
             <span className="error">This field is required</span>
           </div>
           <div className="input--container">
             <label htmlFor="email">Email</label>
-            <input type="text" id="email" ref={emailInput} />
+            <input
+              placeholder="e.g stephenking@lorem.com"
+              type="text"
+              id="email"
+              ref={emailInput}
+            />
             <span className="error">This field is required</span>
           </div>
           <div className="input--container">
             <label htmlFor="phone">Phone</label>
-            <input type="text" id="phone" ref={phoneInput} />
+            <input
+              placeholder="e.g 445-454-4555"
+              type="text"
+              id="phone"
+              ref={phoneInput}
+            />
             <span className="error">This field is required</span>
           </div>
         </form>

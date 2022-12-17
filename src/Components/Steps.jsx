@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Styles.css";
 
 export default function Steps({ carousel, updateIndex }) {
+  const stepsContainer = useRef();
   function checkIndex(e) {
     const carouselChildren = carousel.current.children.length;
+    const stepsContainerChild = stepsContainer.current.children;
     let index = parseInt(e.target.textContent) - 1;
     // let realIndex = index - 1;
     if (index >= carouselChildren) {
       index = carouselChildren - 1;
     }
+    Object.values(stepsContainerChild).forEach(function (value) {
+      value.classList.remove("active");
+    });
+    stepsContainerChild[index].classList.add("active");
     updateIndex(index);
     // carousel.current.style.transform = `translateX(-${index * 100}%)`;
   }
   return (
-    <div className="steps--wrapper">
-      <div className="steps--container">
+    <div className="steps--wrapper" ref={stepsContainer}>
+      <div className="steps--container active">
         <span onClick={checkIndex} className="step">
           1
         </span>

@@ -92,13 +92,13 @@ main {
   flex-direction: column;
 }
 
-.steps > .step--no {
+.steps>.step--no {
   font-size: 0.9rem;
   font-weight: 400;
   color: var(--Cool-gray);
 }
 
-.steps > .step--name {
+.steps>.step--name {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--White);
@@ -139,7 +139,7 @@ main {
     width: 100%;
   }
 
-  .steps--container > .steps {
+  .steps--container>.steps {
     display: flex;
   }
 }
