@@ -1,27 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./Styles.css";
 
-export default function Steps({ carousel, updateIndex }) {
-  const stepsContainer = useRef();
-  function checkIndex(e) {
-    const carouselChildren = carousel.current.children.length;
-    const stepsContainerChild = stepsContainer.current.children;
-    let index = parseInt(e.target.textContent) - 1;
-    // let realIndex = index - 1;
-    if (index >= carouselChildren) {
-      index = carouselChildren - 1;
-    }
-    Object.values(stepsContainerChild).forEach(function (value) {
-      value.classList.remove("active");
-    });
-    stepsContainerChild[index].classList.add("active");
-    updateIndex(index);
-    // carousel.current.style.transform = `translateX(-${index * 100}%)`;
-  }
+export default function Steps({ stepsContainer, checkIndex }) {
   return (
     <div className="steps--wrapper" ref={stepsContainer}>
       <div className="steps--container active">
-        <span onClick={checkIndex} className="step">
+        <span onClick={() => checkIndex(0)} className="step">
           1
         </span>
         <div className="steps">
@@ -30,7 +14,7 @@ export default function Steps({ carousel, updateIndex }) {
         </div>
       </div>
       <div className="steps--container">
-        <span onClick={checkIndex} className="step">
+        <span onClick={() => checkIndex(1)} className="step">
           2
         </span>
         <div className="steps">
@@ -39,7 +23,7 @@ export default function Steps({ carousel, updateIndex }) {
         </div>
       </div>
       <div className="steps--container">
-        <span onClick={checkIndex} className="step">
+        <span onClick={() => checkIndex(2)} className="step">
           3
         </span>
         <div className="steps">
@@ -48,7 +32,7 @@ export default function Steps({ carousel, updateIndex }) {
         </div>
       </div>
       <div className="steps--container">
-        <span onClick={checkIndex} className="step">
+        <span onClick={() => checkIndex(3)} className="step">
           4
         </span>
         <div className="steps">
