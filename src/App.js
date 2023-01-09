@@ -43,6 +43,7 @@ function App() {
       stepsContainerChild[index].classList.add("active");
       carousel.current.style.transform = `translateX(-${index * 100}%)`;
     }
+    setActiveIndex(index);
   }
 
   useEffect(() => {
